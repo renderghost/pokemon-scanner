@@ -1,0 +1,70 @@
+:root {
+  --background: black;
+  --text: white;
+  --accent: gold;
+  --error: red;
+  --success: linen;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+}
+
+.status-overlay {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  max-width: 20rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-dot.identifying {
+  background-color: var(--accent);
+}
+
+.status-dot.success {
+  background-color: var(--success);
+}
+
+.status-dot.error {
+  background-color: var(--error);
+}
+
+.debug-overlay {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
